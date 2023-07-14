@@ -19,7 +19,8 @@ function App() {
     });
     setContacts(newContactList);
   };
-//  useEffect(() => {
+  
+ //  useEffect(() => {
 //      const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
 //      if (retriveContacts) setContacts(retriveContacts);
 //    }, []);
