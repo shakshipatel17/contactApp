@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 class AddContact extends React.Component {
 
@@ -15,7 +16,6 @@ class AddContact extends React.Component {
         }
         this.props.addContactHandler(this.state);
         this.setState({name:"",email:"",address:""})
-        console.log(this.state)
     }
     render(){
         return(
@@ -35,6 +35,7 @@ class AddContact extends React.Component {
                         <input type="text" name ="address" placeholder="Please fill full address" value ={this.state.address} onChange={(e) => this.setState({address: e.target.value})}/>
                     </div>
                     <button className="ui button blue">Add</button>
+                    <Link to="/contactList" className="ui button blue">Contact List</Link>
                 </form>
             </div>
 
