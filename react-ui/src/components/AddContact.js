@@ -35,7 +35,7 @@ class AddContact extends React.Component {
                         <input type="text" name ="address" placeholder="Please fill full address" value ={this.state.address} onChange={(e) => this.setState({address: e.target.value})}/>
                     </div>
                     <button className="ui button blue">Add</button>
-                    <Link to="/contactList" className="ui button blue">Contact List</Link>
+                    <Link to="/" className="ui button blue">Contact List</Link>
                 </form>
             </div>
 
