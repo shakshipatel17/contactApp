@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import axios from "axios";
+const API_URL = "http://localhost:9090";
 
 class AddContact extends React.Component {
 
@@ -10,11 +12,11 @@ class AddContact extends React.Component {
     }
     add = (e)=>{
         e.preventDefault();
-        if(this.state.name === "" && this.state.email === ""){
+        if(this.state.name === "" && this.state.email === "" && this.state.address === ""){
             alert("All the fields are mandatory")
             return;
         }
-        this.props.addContactHandler(this.state);
+        axios.post(API_URL + "/addContact", this.state);
         this.setState({name:"",email:"",address:""})
     }
     render(){
