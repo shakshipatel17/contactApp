@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { Link,useLocation, useParams ,} from "react-router-dom";
+import { Link,useLocation, useParams ,useNavigate} from "react-router-dom";
 import axios from "axios";
 const API_URL = "http://localhost:9090";
 
@@ -11,6 +11,8 @@ class UpdateContact extends React.Component {
             email:"",
             address:"",
         }
+
+
     update = (e)=>{
             e.preventDefault();
             if(this.state.name === "" && this.state.email === "" && this.state.address === ""){
@@ -18,6 +20,7 @@ class UpdateContact extends React.Component {
                 return;
             }
             axios.post(API_URL + "/updateContactById", this.state);
+            this.props.navigate('/');
         }
 
     state = this.props.location.state;
@@ -55,5 +58,5 @@ class UpdateContact extends React.Component {
 }
 
 export default () => (
-  <UpdateContact params={useParams()} location={useLocation()} />
+  <UpdateContact params={useParams()} location={useLocation()} navigate = {useNavigate()} />
 );

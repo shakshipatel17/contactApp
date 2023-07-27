@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 const API_URL = "http://localhost:9090";
 
@@ -18,6 +18,7 @@ class AddContact extends React.Component {
         }
         axios.post(API_URL + "/addContact", this.state);
         this.setState({name:"",email:"",address:""})
+        this.props.navigate("/")
     }
     render(){
         return(
@@ -44,4 +45,6 @@ class AddContact extends React.Component {
         );
     }
 }
-export default AddContact;
+export default  () => (
+                 <AddContact navigate = {useNavigate()} />
+               );
